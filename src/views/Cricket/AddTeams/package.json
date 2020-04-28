@@ -1,0 +1,6 @@
+{
+  "name": "AddTeams",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./AddTeams.js"
+}

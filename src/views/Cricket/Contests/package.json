@@ -1,0 +1,6 @@
+{
+  "name": "Contests",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./Contests.js"
+}

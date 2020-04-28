@@ -1,0 +1,6 @@
+{
+  "name": "MatcheScore",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./MatcheScore.js"
+}

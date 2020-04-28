@@ -1,0 +1,6 @@
+{
+  "name": "PanCard",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./PanCard.js"
+}

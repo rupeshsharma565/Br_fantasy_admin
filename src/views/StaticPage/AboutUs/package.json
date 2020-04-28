@@ -1,0 +1,6 @@
+{
+  "name": "CricketSetting",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./CricketSetting.js"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "OnePageReport",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./OnePageReport.js"
+}

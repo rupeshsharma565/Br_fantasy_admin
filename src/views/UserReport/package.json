@@ -1,0 +1,6 @@
+{
+  "name": "UserReport",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./UserReport.js"
+}

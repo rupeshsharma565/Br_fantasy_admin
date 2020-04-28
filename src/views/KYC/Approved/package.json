@@ -1,0 +1,6 @@
+{
+  "name": "Approved",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./Approved.js"
+}

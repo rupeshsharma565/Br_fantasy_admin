@@ -1,0 +1,196 @@
+
+@media screen and (max-width:1470px) {
+	.video_box{ width:40%;}
+	.video_detailbox{width: 60%;}
+	body{    overflow-x: hidden;}
+	
+}
+
+@media screen and (max-width:1470px) {
+#mainmenu { width:76%; }	
+.header_search ul li.search_input {width: 240px;}
+.header_search li .form-control {width: 150px;}
+.header_search ul li.search_input .form-control {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.col-md-15 { width:25%; }
+
+}
+
+
+
+
+@media screen and (max-width:1260px) {
+.container {width: 100%;}
+#mainmenu {width: auto;}
+header .navbar-brand {float: left;height: auto;padding: 5px 0;width: 210px;}
+.header_search {margin-bottom: 15px;margin-top: 8px;text-align: center;width: 100%;}
+#mainmenu {padding-bottom: 8px;padding-right: 15px;padding-top: 10px;}
+#mainmenu::before {border-top: 62px solid #f8dbe3;}
+.amenitiesleft_bottom {width: 49.5%;}
+.footer_btn {font-size: 14px;padding: 0 15px;}
+.vendors_cta {height: 305px;width: 100%;}
+.price_area { bottom:-305px; padding-top:35%; }
+.event_ctaimg { height:192px; }
+footer  {word-wrap: break-word;}
+.col-md-15 {width: 33.32%;}
+
+.post_right_inner .collapse {display: none;}
+.post_right_inner .collapse.in {display: block;}
+.posts_body_area .post_right_inner { min-height:1px; }
+.post_right_inner h3 {font-size: 18px;padding: 15px 20px; cursor:pointer; }
+.post_right_inner h3 i {float: right;font-size: 21px;}
+.package_header h2 { font-size:20px; }
+.package_header p { font-size:16px; }
+.signup_package_list h3 {font-size: 20px;margin-bottom: 12px;}
+.package_content h3 {font-size: 15px;}
+ul.wedding_plan_part li {width:16%;  }
+.red_btn, .black_btn { margin-right:2px; }
+.blog_detail_rightcol {margin-bottom: 30px;}
+}
+
+
+
+@media screen and (max-width:1023px) 
+{
+#mainmenu::before {border-top: 50px solid #f8dbe3;}
+#mainmenu {margin-right: 0;width: 35%;}
+.cart_login {float: left;margin-top: 0;}
+.header_search ul li.search_input {width: 130px;}
+.header_search ul li.search_input .form-control {background: url("../images/search_icon.png") no-repeat scroll 8px 12px;padding-left: 38px;}
+.header_search ul li .select_box {width: 122px;}
+.header_search li .form-control {width: 130px;}
+.header_search ul li { margin-left:4px; }
+.event_ctaimg {height: 140px;}
+.event_content .pink_btn { min-width:1px; }
+.event_content {padding: 20px 10px;}
+.event_content h3 { font-size:17px; }
+.event_content ul li {border-left: none;font-size: 13px;line-height: 18px;margin-left: 12px;padding-left: 0;}
+.vendors_cta {height: 222px;}
+.price_area {bottom: -222px; padding-top:25%;}
+.amenitiesleft_bottom {width: 49.1%;}
+.footer_btn {text-align: center;width: 100%; margin-bottom:10px; }
+.banner_area h2 { font-size:40px; }
+.banner_area h1 span {margin: 28px 0 40px;}
+.banner_area .slick-slide {padding-bottom: 100px;padding-top: 60px;}
+.wsmenu { padding:4px 0 8px; }
+.wsmenu-list > li { margin-left:0px; }
+.custom_popup .modal-dialog { width:755px; }
+#mainmenu::after {background: #f8dbe3;content: "";height: 50px;position: absolute;right: -15px;top: 0;width: 15px;}
+.wsmenucontainer { overflow:visible; }
+.col-md-15 {width: 50%;}
+
+.available_hourse_select .available_timer_order ul li {margin-right: 10px;width: 30%;}
+.small_vendors_cta .vendors_cta {height: 210px;}
+.small_vendors_cta .vendors_cta .price_area {padding-top: 25%;}
+ul.wedding_plan_part li {width: 19%;}
+.blog_ctatext h3 { font-size:18px }
+.ava_timetop_slider {margin-top: 30px;} 
+.ava_timetop_slider .slick-prev.slick-arrow {left: 0;top: -30px;}
+.ava_timetop_slider .slick-next.slick-arrow {
+  right: 0;
+  top: -30px;
+  width: 30px; left:auto;
+}
+.business_info_toparea .business_topimgarea{height: 158px; width: 158px;}
+}
+
+
+@media screen and (max-width:767px) {
+
+#mainmenu {margin-right: 0;width: 50%;}
+header .navbar-brand {width: 145px;}
+.cart_login ul li:first-child {margin-left: 0;}
+.header_search ul li {margin-bottom: 10px;}
+.header_search ul li.search_input {width: 185px;}
+.banner_area h1 { font-size:22px; }
+.banner_area h2 {font-size: 30px;}
+.banner_area h1 span img {width: 335px;}
+.event_cta {margin-bottom: 35px;}
+.page_heading h2 { font-size:40px; }
+.event_area { text-align:center; }
+.event_cta {margin-bottom: 35px;}
+.vendors_area { text-align:center; }
+.vendors_cta {background: #f1f1f1;display: inline-block;height: 290px;margin-bottom: 30px;text-align: center;width: 100%;}
+.price_area {bottom: -290px;padding-top: 30%;}
+.amenitiesright_col {margin-top: 20px;}
+.footer_btn { width:auto; }
+footer .col-sm-3 {margin-bottom: 30px;}
+.shippingcardwrap { width:290px; }
+.custom_popup .modal-dialog { width:450px; }
+.custom_popup h4 { font-size:38px; }
+.custom_popup .modal-body {padding: 15px 0;}
+.event_ctaimg {height: 225px;}
+.inner_banner {padding: 80px 0 100px;}
+.post_banner_userimg {bottom: -65px; left:0px; right:0px; margin:auto; width:135px; height:135px; } 
+.inner_banner h1 { font-size:50px; }
+
+.business_info_toparea .business_topimg_contentarea {margin: 25px 0;padding-left: 0;width: 100%;}
+.business_left-contentarea p {padding-bottom: 0;} 
+.dashboard_section p {font-size: 15px;padding-bottom: 0;}
+.dashboard_section {margin-bottom: 20px;}
+.comment_chat_part { text-align:center; }
+.post_top_commentpart_imgarea { margin-bottom:20px; }
+.post_top_comment_content01 {padding-left: 0;width: 100%;}
+.post_comment_section { text-align:center; }
+.comment_chat_part.for_left_chat {padding-left: 0;}
+.signup_package_list h2 { padding-top:30px; }
+.vender_list {margin-top: 30px;}
+ul.wedding_plan_part li {width: 49%;}
+.ava_time_section .ava_time_innerpart li { font-size:13px; }
+.ava_time_section .ava_time_innerpart h3 { font-size:16px; }
+.business_info_toparea .business_topimgarea{width: 148px; height: 148px;}
+.this_years .bottom_this ul li{width: 32%;}
+.invoices_table .invoice_inputtype form .form-group input[type="text"]{width: 49%;}
+.this_years .bottom_this ul li h3{font-size: 25px;}
+.invoices_table .inner_invoice .table thead tr th{font-size: 13px;}
+.invoices_table .inner_invoice .table tbody tr td{font-size: 13px;}
+}
+
+
+
+ 
+@media screen and (max-width:479px) {
+#mainmenu::before { display:none; }
+#mainmenu {padding-right: 0;width: 100%;}
+.cart_login {text-align: center;width: 100%;}
+.header_search ul li.search_input {width: 46%;}
+.header_search ul li {width: 46%; margin-left:0px;}
+.header_search ul li .select_box {width: 100%;}
+.header_search li .form-control { width:100%; }
+.header_search li input[type="submit"] { width:100%; }
+.banner_area h2 {font-size: 30px;line-height: 40px;padding: 0 30px;}
+.banner_area .slick-slide {padding-bottom: 60px;padding-top: 32px;}
+.custom_popup .modal-dialog { width:290px; }
+#mainmenu::after { display:none; }
+.event_ctaimg {height: 180px;}
+.small_event_cta .event_ctaimg {height: 180px;}
+.col-md-15 {width: 100%;}
+.available_hourse_select .available_timer_order ul li {margin-right: 6px;width: 47%;}
+.signup_package_list h2  { font-size:30px; }
+.business_info_toparea .business_topimgarea {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.invoices_table .invoice_section{width: 100%; margin-bottom: 25px;}
+.invoices_table .invoice_inputtype form .form-group input[type="text"]{width: 100%;}
+.invoices_table .invoice_inputtype form .form-group i.fa.fa-search{top: 354px;}
+.invoices_body .more_actions h2{width: 100%; margin-bottom: 20px;}
+.invoices_body .more_actions .more_right {text-align:left;}
+.invoices_body .more_actions .more_right ul li i.fa.fa-angle-down{top: 55px; right: 172px;}
+.this_years .bottom_this ul li h3{font-size: 16px;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

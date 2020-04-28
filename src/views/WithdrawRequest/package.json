@@ -1,0 +1,6 @@
+{
+  "name": "WithdrawRequest",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./WithdrawRequest.js"
+}

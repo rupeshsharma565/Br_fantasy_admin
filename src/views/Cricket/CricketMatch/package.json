@@ -1,0 +1,6 @@
+{
+  "name": "CricketMatch",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./CricketMatch.js"
+}
