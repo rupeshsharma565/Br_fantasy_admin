@@ -49,8 +49,11 @@ class DefaultHeader extends Component {
 
         <header>
     <div className="logo">
-      <a href="index.html"> <img className="small_logo" src="images/logo_icon.png" alt="img"/> <img className="large_logo" src="images/logo.png"
-          alt="img"/> </a>
+      <a href="index.html"> 
+      {/* <img className="small_logo" src="images/logo_icon.png" alt="img"/>  */}
+      <img className="large_logo" src="images/logo.png"
+          alt="img"/> 
+          </a>
     </div>
     <div className="header_rightcol">
       <ul className="pull-left">
