@@ -272,6 +272,15 @@ margin-left: 18px !important;
     margin-left: 50%;
 }
 
+.sidebar {
+    margin-top: inherit;
+    background-color: #313a46;
+}
+
+.sidebar div {
+    margin-top: 13px;
+}
+
 
 
 
