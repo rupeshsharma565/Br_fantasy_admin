@@ -13,3 +13,4 @@ export * from './localscore.service';
 export * from './rewards.service';
 export * from './promocode.service';
 export * from './privateContest.service';
+export * from './globalService.service';

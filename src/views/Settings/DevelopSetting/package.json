@@ -1,0 +1,6 @@
+{
+  "name": "DevelopSetting",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./DevelopSetting.js"
+}

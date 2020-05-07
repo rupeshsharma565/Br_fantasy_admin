@@ -17,6 +17,7 @@ import { localscore } from './localscore.reducer';
 import { rewards } from './rewards.reducer';
 import { promocode } from './promocode.reducer';
 import { privatecnst } from './privateContest.reducer';
+import {globalReducer} from './globalReducer.reducer';
 
 
 
@@ -37,7 +38,8 @@ const rootReducer = combineReducers({
   localscore,
   rewards,
   promocode,
-  privatecnst
+  privatecnst,
+  globalReducer
 });
 
 export default rootReducer;

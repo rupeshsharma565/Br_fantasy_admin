@@ -14,3 +14,4 @@ export * from './localscore.constants';
 export * from './rewards.constants';
 export * from './promocode.constants';
 export * from './privateContest.constants';
+export * from './globalConstants.constants';

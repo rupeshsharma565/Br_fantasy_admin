@@ -94,7 +94,7 @@ const AllMatch= React.lazy(() => import('./views/Cricket/AllMatch/AllMatch'));
 const Rewards= React.lazy(() => import('./views/Rewards/Rewards'));
 const Promocode= React.lazy(() => import('./views/Promocode/Promocode'));
 const PrivateContest= React.lazy(() => import('./views/PrivateContest/PrivateContest'));
-
+const DevelopSetting = React.lazy(() => import('./views/Settings/DevelopSetting/DevelopSetting'));
 
 //const User = React.lazy(() => import('./views/Users/User'));src/Payment/Bank/Bank.js
 
@@ -235,6 +235,7 @@ const routes = [
   { path: '/promocode', exact: true, name: 'Promocode', component: Promocode },
   { path: '/privatecontest', exact: true, name: 'PrivateContest', component: PrivateContest },
   
+  { path: '/settings/developsettings', exact: true, name: 'Common Setting', component: DevelopSetting },
 ];
 
 export default routes;

@@ -14,6 +14,4 @@ export * from './localscore.actions';
 export * from './rewards.actions';
 export * from './promocode.actions';
 export * from './privateContest.actions';
-
-
-
+export * from './globalAction.actions';
