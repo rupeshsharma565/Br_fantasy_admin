@@ -260,7 +260,7 @@ class Referral extends Component {
 
 
                    <Col xl={1}/>
-                  <Col xl={2}><Label htmlFor="pid">Referral Bonus Used User</Label></Col>
+                  <Col xl={2}><Label htmlFor="pid">Referred to</Label></Col>
                   <Col xl={3}>
                         <FormGroup>
                           <Input
@@ -283,7 +283,7 @@ class Referral extends Component {
 
 
                 <Col xl={1}/>
-                  <Col xl={2}><Label htmlFor="pid">Refer User Bonus</Label></Col>
+                  <Col xl={2}><Label htmlFor="pid">Referred by</Label></Col>
                   <Col xl={3}>
                         <FormGroup>
                           <Input
@@ -389,11 +389,11 @@ class Referral extends Component {
                       &nbsp;&nbsp;&nbsp;&nbsp; With or without using refer code each user will receive this bonus amount.<br/>
                     </li>
                     <li>
-                    <b>Referral Bonus Used User</b><br/>
+                    <b>Referred to</b><br/>
                     &nbsp;&nbsp;&nbsp;&nbsp; UserB will receive this bonus amount instantly after sign up with refer code of UserA.<br/>
                     </li>
                     <li>
-                    <b>Refer User Bonus</b><br/>
+                    <b>Referred by</b><br/>
                     &nbsp;&nbsp;&nbsp;&nbsp; This is total bonus amount which UserA is going to receive when UserB will join pool. (Would not be able to receive total bonus amount in one time. This will based upon Bonus % and Max amount)<br/>
                     </li>
                     <li>
