@@ -612,6 +612,11 @@ let replacePlayerList={};
           });
   }
 
+  isOutsideRange = day =>
+    day.isBefore(moment(this.state.startDate));
+
+    //|| day.isBefore(moment().subtract(30, "days")
+
   render() {
     let formthis=this;
 
@@ -760,7 +765,7 @@ let replacePlayerList={};
                                   onFocusChange={this.onFocusChange1} 
                                   numberOfMonths={1}
                                   small={true}
-                                  isOutsideRange={day => (moment().diff(day) === 0)}
+                                  isOutsideRange={this.isOutsideRange}
                                   placeholder="End Date"
                                   displayFormat="DD/MM/YYYY"
                               />

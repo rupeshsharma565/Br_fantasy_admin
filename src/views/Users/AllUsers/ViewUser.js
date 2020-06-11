@@ -284,8 +284,8 @@ showConfirmToggle(){
                           <Col xl="3"><strong><i className="icon-info pr-1"></i>ViewUser id: {this.props.match.params.id}</strong></Col>
                           <Col xl="3">
 
-                            <Button className="btn-sm btn-square btn-success"  onClick={() => this.udpateUserKYC(userInfo,'bank')}>Bank Verified</Button>&nbsp;&nbsp;&nbsp;
-                            <Button className="btn-sm btn-square btn-success"  onClick={() => this.udpateUserKYC(userInfo,'pancard')}>PAN Verified</Button>&nbsp;&nbsp;&nbsp;
+    {(userInfo && userInfo.acno)?((userInfo.isbankdverify==="0")? <Button className="btn-sm btn-square btn-success"  onClick={() => this.udpateUserKYC(userInfo,'bank')}>Bank Verify</Button>:<h6>Bank Verified</h6>):"Bank not filled" }&nbsp;&nbsp;&nbsp;
+    {(userInfo && userInfo.pannumber)?((userInfo && userInfo.ispanverify==="0")?<Button className="btn-sm btn-square btn-success"  onClick={() => this.udpateUserKYC(userInfo,'pancard')}>PAN Verify</Button>:<h6>PAN Verified</h6>):"PAN not filled"}&nbsp;&nbsp;&nbsp;
                             {/* <Button className="btn-sm btn-square btn-success"  onClick={() => this.setState({isEdit:!this.state.isEdit})}>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</Button>&nbsp;&nbsp;&nbsp; */} 
                             
                           </Col>
@@ -298,8 +298,8 @@ showConfirmToggle(){
                           { userInfo.status === "1" || userInfo.status === "0" ?<span><Button className="btn-sm btn-square btn-danger"  onClick={() => this.udpateUserStatus(userInfo,2)}>Block&nbsp;&nbsp;&nbsp;</Button>&nbsp;</span>:null}
                           </Col>:null}
                           <Col xl="3">
-                          <span><Button className="btn-sm btn-square btn-danger" onClick={() => this.udpateUserKYC(userInfo,"bankreject")}>Bank Reject</Button>&nbsp;&nbsp;&nbsp;</span>
-                          <span><Button className="btn-sm btn-square btn-danger" onClick={() => this.udpateUserKYC(userInfo,"panreject")}>PAN Reject</Button></span>
+                          {(userInfo && userInfo.acno)?<span><Button className="btn-sm btn-square btn-danger" onClick={() => this.udpateUserKYC(userInfo,"bankreject")}>Bank Reject</Button>&nbsp;&nbsp;&nbsp;</span>:null}
+                          {(userInfo && userInfo.pannumber)?<span><Button className="btn-sm btn-square btn-danger" onClick={() => this.udpateUserKYC(userInfo,"panreject")}>PAN Reject</Button></span>:null}
                           </Col>
                     
                   </FormGroup> 

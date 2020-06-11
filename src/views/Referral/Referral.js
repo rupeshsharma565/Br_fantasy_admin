@@ -60,7 +60,9 @@ class Referral extends Component {
         this.props.dispatch(settingActions.getReferralPoint());
     }
 
-    
+    if (nextProps.setting.error) {
+      toast(nextProps.setting.error);        
+    }
     
   }
   //Show Badge in Table

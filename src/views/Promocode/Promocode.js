@@ -565,7 +565,7 @@ this.setState({startdate});
                     max= {(this.state.typeset===100)?100:100000000}
                     validate={{
                       required: { value: true, errorMessage: "Code Value is required" },
-                      //pattern: { value: CONST.PATTERN.username, errorMessage: 'Please enter valid Code Value' },
+                      pattern: { value: CONST.PATTERN.username, errorMessage: 'Please enter valid Code Value' },
                       //maxLength: { value:((this.state.typeset===0)?10:3) , errorMessage: ((this.state.typeset===100)?"You enter must be 12 character":"")},
                     }}
                   />

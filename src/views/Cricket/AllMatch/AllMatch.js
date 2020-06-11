@@ -384,8 +384,8 @@ class AllMatch extends Component {
       text: "You want to cancel",
       icon: "warning",
       buttons: [
-        'No, cancel it!',
-        'Yes, Cancel!'
+        'No',
+        'Yes'
       ],
       dangerMode: true,
     }).then(function (isConfirm) {
