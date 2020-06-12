@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-//import { AsyncTypeahead } from 'react-bootstrap-typeahead';
-//import axios from 'axios';
-//import { authHeader } from '../../../_helpers';
-//import { CONST } from '../../../_config';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import { SingleDatePicker} from 'react-dates';
@@ -11,8 +7,6 @@ import TimePicker from 'react-times';
 import 'react-times/css/material/default.css';
 // or you can use classic theme
 import 'react-times/css/classic/default.css';
-
-
 import {
   Card,
   CardBody,
@@ -32,9 +26,9 @@ import {
 } from 'reactstrap';
 
 import * as moment from 'moment';
-import PaginationComponent from 'react-reactstrap-pagination';
 import { connect } from 'react-redux';
 import { cricketActions } from '../../../_actions';
+import PaginationComponent from "react-reactstrap-pagination";
 
 class CricketMatch extends Component {
 
@@ -49,7 +43,8 @@ class CricketMatch extends Component {
       total:0,
       selectedPage:1,
       addMatchModal: false,
-      gameid:0
+      gameid:0,
+      rowLimit:10
     };
     this.activeMatch = this.activeMatch.bind(this);
     this.addMatchToggle = this.addMatchToggle.bind(this);
@@ -80,10 +75,10 @@ class CricketMatch extends Component {
     else if(this.props.location.pathname==="/football/upcommingmatch"){
       gameid=2;
     }
-      console.log("this.state.selectedPage-->>",this.state.selectedPage);
+    
     let data={
       page:this.state.selectedPage,
-      limit:10,
+      limit:this.state.rowLimit,
       gameid:gameid
     }
     this.setState({gameid:gameid},()=>{
@@ -93,13 +88,13 @@ class CricketMatch extends Component {
 
     
   }
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.cricket.isActivated) {
       // let data={
       //   limit:10
       // }
       let data = {
-        limit: 10,
+        limit: this.state.rowLimit,
         page: this.state.selectedPage,
         search: '',
         gameid:this.state.gameid
@@ -124,7 +119,7 @@ class CricketMatch extends Component {
       });
       let data={
         page:1,
-        limit:10,
+        limit:this.state.rowLimit,
         gameid:this.state.gameid
       }
       this.props.dispatch(cricketActions.getUpcommingMatch(data));
@@ -135,11 +130,6 @@ class CricketMatch extends Component {
           selectedPage:this.state.selectedPage
       });
     }
-
-    if (nextProps.cricket.loading===false) {
-      this.setState({ loading:false});
-    }
-
   }
   onDateChange = (startDate) => {
     this.setState(() => ({ startDate }));
@@ -173,7 +163,7 @@ class CricketMatch extends Component {
     });
     let data={
       page:1,
-      limit:10,
+      limit:this.state.rowLimit,
       gameid:this.state.gameid
     }
     this.props.dispatch(cricketActions.getUpcommingMatch(data));
@@ -193,8 +183,6 @@ class CricketMatch extends Component {
       gameid: this.state.gameid,
       team2: this.state.selectedteam2
     };
-    console.log(data);
-    
     this.props.dispatch(cricketActions.addDomMatch(data));
   }
   searchMatchesList() {
@@ -204,7 +192,7 @@ class CricketMatch extends Component {
           'date1': this.state.startDate?moment(this.state.startDate).format('DD-MM-YYYY'):'',
           'date2': this.state.endDate?moment(this.state.endDate).format('DD-MM-YYYY'):'',
           'page':1,
-          'limit':10,
+          'limit':this.state.rowLimit,
           gameid:this.state.gameid
       }
       this.props.dispatch(cricketActions.getUpcommingMatch(data));
@@ -214,7 +202,7 @@ class CricketMatch extends Component {
     //   'date1': moment(this.state.startDate).format('DD-MM-YYYY'),
     //   'date2': moment(this.state.endDate).format('DD-MM-YYYY'),
     //   page:1,
-    //   limit:10
+    //   limit:this.state.rowLimit
     // }
     // this.props.dispatch(cricketActions.getUpcommingMatch(data));
       
@@ -222,7 +210,7 @@ class CricketMatch extends Component {
     // let data={
     //   'search': this.state.findmatch,
     //   page:1,
-    //   limit:10
+    //   limit:this.state.rowLimit
     // }
     // this.props.dispatch(cricketActions.getUpcommingMatch(data));
       
@@ -236,8 +224,8 @@ class CricketMatch extends Component {
           'isactive':1,
           'page':this.state.selectedPage          
       }
-      this.setState({loading:true});
       this.props.dispatch(cricketActions.updateUpcommingMatch(data));
+
   }
   handleChangeSearch(e) {
 
@@ -248,7 +236,7 @@ class CricketMatch extends Component {
   handleSelectedPaginate(selectedPage) {
      
     let data = {
-      limit: 10,
+      limit: this.state.rowLimit,
       page: selectedPage,
       'search': this.state.findmatch,
       'date1': this.state.startDate? moment(this.state.startDate).format('DD-MM-YYYY'):null,
@@ -284,7 +272,6 @@ class CricketMatch extends Component {
     this.setState(() => ({ matchDateFocused: focused }))
   }
   onTimeChangematch = (matchTime) => {
-    console.log("matchTime  ",matchTime);
     this.setState(() => ({hour: matchTime.hour,minute: matchTime.minute}));
   }
   onFocusTimeChangematch = ({ focused }) => {
@@ -301,7 +288,6 @@ class CricketMatch extends Component {
 
     return (
       <div className="animated fadeIn ">
-       {(cricket.loading || this.state.loading)?<div className="loader"></div>:null}
         <Row>
             <Col xl={12}>
               <Card>
@@ -346,10 +332,10 @@ class CricketMatch extends Component {
                       </Col>
 
                       <Col xs="2"/>
-                      {/* <Col xs="2">
-                        <Button color="info" onClick={this.addMatchToggle}> Add Domestic Match
-                        </Button>
-                      </Col> */}
+                      <Col xs="2">
+                        {/* <Button color="info" onClick={this.addMatchToggle}> Add Domestic Match
+                        </Button> */}
+                      </Col>
                   </Row>
                 </CardBody>
               </Card>
@@ -371,7 +357,6 @@ class CricketMatch extends Component {
                       <th scope="col">DATE</th>
                       <th scope="col">MATCH NAME</th>
                       {/* <th scope="col">ACTION</th> */}
-                      <th scope="col">Series </th>
                       <th scope="col">UPDATE</th>
                     </tr>
                   </thead>
@@ -379,7 +364,7 @@ class CricketMatch extends Component {
                     {upcommingmatch
                       ? upcommingmatch.list.map((matchs, index) => (
                           <tr key={index}>
-                            <td>{this.state.selectedPage===0 ||this.state.selectedPage===1?(index + 1):((this.state.selectedPage-1)*10) + (index + 1)}</td>
+                            <td>{this.state.selectedPage===0 ||this.state.selectedPage===1?(index + 1):((this.state.selectedPage-1)*this.state.rowLimit) + (index + 1)}</td>
                             <td>{matchs.team1}</td>
                             <td>{matchs.team2}</td>
                             <td>{matchs.unique_id}</td>
@@ -393,25 +378,24 @@ class CricketMatch extends Component {
                                   {matchs.isactive === 1?'Created':'Not Created'}
                                 </Badge>
                             </td> */}
-                            <td>{matchs.seriesname}</td>
                               <td >
-                                {matchs.isactive === "0"?<button className="custom_btn" onClick={()=> this.activeMatch(matchs)}><i className="fa fa-check"></i></button>:
+                                {(matchs.status==="canceled")?(<Badge className="mr-1" color={"danger"} > {'canceled'} </Badge>):(matchs.isactive === "0"?<button className="custom_btn" onClick={()=> this.activeMatch(matchs)}><i className="fa fa-check"></i></button>:
                                     <Badge className="mr-1" color={"success"} > {'Active'} </Badge>
-                                }
+                                )}
                               </td>
-                              
                           </tr>
                         ))
                       : null}
                   </tbody>
-                </Table>{this.state.total ?this.state.total:null}
-                {this.state && this.state.total > 10 ? (
+                </Table>
+                {this.state && this.state.total > this.state.rowLimit ? (
                   <PaginationComponent
                     totalItems={parseInt(this.state.total)}
-                    pageSize={10}
+                    pageSize={this.state.rowLimit}
                     onSelect={this.handleSelectedPaginate}
                   />
                 ) : null}
+               
               </CardBody>
             </Card>
           </Col>
@@ -421,7 +405,7 @@ class CricketMatch extends Component {
         <Modal isOpen={this.state.addMatchModal} toggle={this.addMatchToggle} className={this.props.className}>
           <ModalHeader toggle={this.addMatchToggle}> Add Match </ModalHeader>
           <ModalBody>
-            {this.state.teamList?<Row>
+            <Row>
               <Col xs="12">
                 <FormGroup>
                   <Label htmlFor="pname">Team1</Label>
@@ -432,16 +416,16 @@ class CricketMatch extends Component {
                             onChange={this.selectTeam}
                             value={this.state.selectedteam1}>
                             {
-                              this.state.teamList.map((e, key) => {
+                              (this.state.teamList && this.state.teamList.length>0)?this.state.teamList.map((e, key) => {
                                 return <option key={key} value={e.value}>{e.name}</option>;
-                              })
+                              }):null
                             }
                     </Input>
                 </FormGroup>
               </Col>
-            </Row>:null}
+            </Row>
 
-            {this.state.teamList?<Row>
+            <Row>
               <Col xs="12">
                 <FormGroup>
                   <Label htmlFor="pname">Team2</Label>
@@ -452,14 +436,14 @@ class CricketMatch extends Component {
                             onChange={this.selectTeam}
                             value={this.state.selectedteam2}>
                             {
-                              this.state.teamList.map((e, key) => {
+                              (this.state.teamList && this.state.teamList.length>0)?this.state.teamList.map((e, key) => {
                                 return <option key={key} value={e.value}>{e.name}</option>;
-                              })
+                              }):null
                             }
                     </Input>
                 </FormGroup>
               </Col>
-            </Row>:null}
+            </Row>
             <Row>
               <Col xs="4">
                 <FormGroup>

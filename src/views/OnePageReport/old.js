@@ -735,7 +735,7 @@ let replacePlayerList={};
                 {this.state.onepagedatalist && this.state.onepagedatalist.length > 0 && this.state.heading.length > 0?
 
                 <Button color="secondary" onClick={this.downloadMeClick} >
-                   Downlaod
+                   Download
                 </Button>:null}
                 
                 {this.state.isCSV===true?

@@ -610,3 +610,6 @@ body.hide_footer .footer_downarrow .fa-angle-down {display: none;}
   .app-header .nav-item .nav-link > .img-avatar, .app-header .nav-item .avatar.nav-link > img{margin: 0 4px;}
 }
 
+.required {
+  color: #ff0000;
+}

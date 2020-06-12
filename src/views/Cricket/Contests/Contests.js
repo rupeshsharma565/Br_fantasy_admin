@@ -184,6 +184,8 @@ class Contensts extends Component {
         })
         .catch(error => {});
 
+    }else{
+      toast("Add all required fields");
     }
   }
   //Delete Dialog box
@@ -542,7 +544,7 @@ class Contensts extends Component {
             <Row>
               <Col xs="12">
                 <FormGroup>
-                  <Label htmlFor="pid">Title</Label>
+                  <Label htmlFor="pid">Title <span className="required">*</span></Label>
                   <AvField
                     type="text"
                     name="contensttitle"
@@ -560,7 +562,7 @@ class Contensts extends Component {
             <Row>
               <Col xs="12">
                 <FormGroup>
-                  <Label htmlFor="fpname">SubTitle</Label>
+                  <Label htmlFor="fpname">SubTitle <span className="required">*</span></Label>
                   <AvField
                     type="text"
                     name="contenstsubtitle"
@@ -667,7 +669,7 @@ class Contensts extends Component {
               <Col xs="12">
               
                 <FormGroup>
-                  <Label htmlFor="pname">Logo</Label>
+                  <Label htmlFor="pname">Logo <span className="required">*</span></Label>
                   <ImageUploader
                     withIcon={false}
                     buttonText="Contest Logo"

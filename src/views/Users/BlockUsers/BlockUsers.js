@@ -194,7 +194,7 @@ class BlockUsers extends Component {
                         <td><Badge color={this.getBadge(user.status)} >{user.status === "1" ? 'Active' : user.status === "0" ? 'Inactive':'Blocked'}</Badge></td>
                         <td>
                           {user.status === "0" || user.status === "2" ?<span><Button className="btn-sm btn-square btn-success" onClick={() => this.udpateUserStatus(user,1)}>Active&nbsp;&nbsp;&nbsp;</Button> &nbsp;</span>:null} 
-                          {user.status === "1" || user.status === "2" ?<span><Button className="btn-sm btn-square btn-danger"  onClick={() => this.udpateUserStatus(user,0)}>Inactive</Button>&nbsp;</span>:null}
+                          {/* {user.status === "1" || user.status === "2" ?<span><Button className="btn-sm btn-square btn-danger"  onClick={() => this.udpateUserStatus(user,0)}>Inactive</Button>&nbsp;</span>:null} */}
                           {user.status === "1" || user.status === "0" ?<span><Button className="btn-sm btn-square btn-danger"  onClick={() => this.udpateUserStatus(user,2)}>Block&nbsp;&nbsp;&nbsp;</Button>&nbsp;</span>:null}
                         </td>
                       </tr >
