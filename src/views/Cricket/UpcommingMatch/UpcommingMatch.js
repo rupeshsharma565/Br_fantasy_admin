@@ -379,7 +379,7 @@ class CricketMatch extends Component {
                                 </Badge>
                             </td> */}
                               <td >
-                                {(matchs.status==="canceled")?(<Badge className="mr-1" color={"danger"} > {'canceled'} </Badge>):(matchs.isactive === "0"?<button className="custom_btn" onClick={()=> this.activeMatch(matchs)}><i className="fa fa-check"></i></button>:
+                                {(matchs.isactive === "0"?<button className="custom_btn" onClick={()=> this.activeMatch(matchs)}><i className="fa fa-check"></i></button>:
                                     <Badge className="mr-1" color={"success"} > {'Active'} </Badge>
                                 )}
                               </td>
