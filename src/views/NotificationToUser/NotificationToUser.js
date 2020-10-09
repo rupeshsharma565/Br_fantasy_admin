@@ -469,7 +469,6 @@ deleteNotification(item){
                       placeholder="Enter title" 
                       value={this.state.title}  
                       onChange={this.handleChangeUpdate} 
-                      readOnly={true} 
                       validate={{
                       required: { value: true, errorMessage: "title is required" },
                       }} 
@@ -493,8 +492,7 @@ deleteNotification(item){
                      <textarea  className="form-control" rows="5"
                       value={this.state.descriptionState} 
                       onChange={this.onEditorStateChange}
-                      readOnly={true} 
-                       validate={{
+                      validate={{
                       required: { value: true, errorMessage: "Description is required" },
                       }} 
                       />
