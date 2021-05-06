@@ -18,12 +18,13 @@ function getGlobalList(data) {
     headers: header,
     body: JSON.stringify(data.parameter)
   };
+
   return fetch(CONST.BACKEND_URL + data.apiurl, requestOptions)
     .then(handleResponse)
     .then(res => {
-      
+
       let userObj = {
-        [data.secondname]:res
+        [data.secondname]: res
       };
       return userObj;
     });

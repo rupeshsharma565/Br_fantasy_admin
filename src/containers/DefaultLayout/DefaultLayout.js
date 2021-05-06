@@ -26,9 +26,9 @@ const DefaultFooter = React.lazy(() => import('./DefaultFooter'));
 const DefaultHeader = React.lazy(() => import('./DefaultHeader'));
 
 
-  // let user = JSON.parse(localStorage.getItem('user'));
-  // console.log("usersssssssss : ",user.menus);
-  // let nav=user.menus;
+// let user = JSON.parse(localStorage.getItem('user'));
+// console.log("usersssssssss : ",user.menus);
+// let nav=user.menus;
 
 
 class DefaultLayout extends Component {
@@ -45,11 +45,11 @@ class DefaultLayout extends Component {
     //console.log("navigation  ",navigation);
     let user = JSON.parse(localStorage.getItem('user'));
     //console.log("usersssssssss : ",user.menus);
-    let navdata={
-      items:user.menus
+    let navdata = {
+      items: user.menus
     }
     if (!user.menus) {
-     return  <Redirect  to="/login" />
+      return <Redirect to="/login" />
     }
     return (
       <div className="app">

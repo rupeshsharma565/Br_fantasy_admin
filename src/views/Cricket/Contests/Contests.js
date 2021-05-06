@@ -20,7 +20,7 @@ import {
   // InputGroup,
   // InputGroupAddon,
   ListGroup,
- 
+
 } from 'reactstrap';
 import axios from 'axios';
 import { authHeader } from '../../../_helpers';
@@ -42,10 +42,10 @@ class Contensts extends Component {
       selectedPage: 1,
       totalpage: 0,
       checked: false,
-      typeset:0,
-      checkSelect:false,
-      formData:{dis_val:0,max_dis_val:0,dis_type:"",cpypoolstatus:0,cpybfrtim:0},
-      cpyobj:{}
+      typeset: 0,
+      checkSelect: false,
+      formData: { dis_val: 0, max_dis_val: 0, dis_type: "", cpypoolstatus: 0, cpybfrtim: 0 },
+      cpyobj: {}
     };
     this.onDropEdit = this.onDropEdit.bind(this);
     this.onDrop1 = this.onDrop1.bind(this);
@@ -60,23 +60,23 @@ class Contensts extends Component {
     this.handleSelectedPaginate = this.handleSelectedPaginate.bind(this);
     this.handleChangeSearch = this.handleChangeSearch.bind(this);
     this.assignResourceContenstToggle = this.assignResourceContenstToggle.bind(this);
-    this.onChangeSelect=this.onChangeSelect.bind(this);
+    this.onChangeSelect = this.onChangeSelect.bind(this);
     this.updateFavStatus = this.updateFavStatus.bind(this);
     this.checkedHandal = this.checkedHandal.bind(this);
     this.editContestFun = this.editContestFun.bind(this);
   }
 
-  checkedHandal=(contest)=>{
+  checkedHandal = (contest) => {
 
-    let cpyobj={};
-      cpyobj=this.state.cpyobj;
-    let status=(this.state.cpyobj[contest.id]===true || this.state.cpyobj[contest.id]===false)?this.state.cpyobj[contest.id]:((contest.cpypoolstatus && contest.cpypoolstatus==="1") ?true : false );
-    cpyobj[contest.id]=(!status);
-    this.setState({cpyobj:cpyobj}); 
+    let cpyobj = {};
+    cpyobj = this.state.cpyobj;
+    let status = (this.state.cpyobj[contest.id] === true || this.state.cpyobj[contest.id] === false) ? this.state.cpyobj[contest.id] : ((contest.cpypoolstatus && contest.cpypoolstatus === "1") ? true : false);
+    cpyobj[contest.id] = (!status);
+    this.setState({ cpyobj: cpyobj });
     const formData = new FormData();
-    formData.append('id',  contest.id);
-    formData.append('cpypoolstatus',  contest.cpypoolstatus);
-    formData.append('atype',  "poolStatus");
+    formData.append('id', contest.id);
+    formData.append('cpypoolstatus', contest.cpypoolstatus);
+    formData.append('atype', "poolStatus");
     const config = {
       headers: {
         'content-type': 'multipart/form-data',
@@ -86,16 +86,16 @@ class Contensts extends Component {
     axios
       .post(CONST.BACKEND_URL + `/api/editcontests`, formData, config)
       .then(response => {
-       
-          if (!response.data.error) {
-             toast(response.data.msg);
-              this.props.dispatch(cricketActions.getContenstsList());
-          }else{
-             toast(response.data.msg);
-          }
-        
+
+        if (!response.data.error) {
+          toast(response.data.msg);
+          this.props.dispatch(cricketActions.getContenstsList());
+        } else {
+          toast(response.data.msg);
+        }
+
       })
-      .catch(error => {}); 
+      .catch(error => { });
   }
   componentDidMount() {
     this.props.dispatch(cricketActions.getContenstsList());
@@ -128,7 +128,7 @@ class Contensts extends Component {
     });
   }
   showContenstInfo(data) {
-     console.log(JSON.stringify(data))
+    console.log(JSON.stringify(data))
     this.setState({
       showContenstid: data.id,
       showContensttitle: data.title,
@@ -142,7 +142,7 @@ class Contensts extends Component {
 
     this.setState({
       addContenstModal: !this.state.addContenstModal,
-      formData:{dis_val:0,max_dis_val:0,dis_type:"",cpypoolstatus:"0",cpybfrtim:0}
+      formData: { dis_val: 0, max_dis_val: 0, dis_type: "", cpypoolstatus: "0", cpybfrtim: 0 }
     });
   }
   handleChangeAddContenst(e) {
@@ -151,10 +151,10 @@ class Contensts extends Component {
   }
   addContenst() {
     this.setState({ submitted: true });
-    
+
     if (this.state.contensttitle && this.state.contenstsubtitle && this.state.contestlogo) {
       const formData = new FormData();
-      formData.append('title',  this.state.contensttitle);
+      formData.append('title', this.state.contensttitle);
       formData.append('subtitle', this.state.contenstsubtitle);
       formData.append('contestlogo', this.state.contestlogo);
       formData.append('dis_val', this.state.formData.dis_val);
@@ -170,21 +170,21 @@ class Contensts extends Component {
       axios
         .post(CONST.BACKEND_URL + `/api/addcontests`, formData, config)
         .then(response => {
-         
-            if (!response.data.error) {
-               toast(response.data.msg);
-                this.setState({
-                  addContenstModal: false
-                });
-                this.props.dispatch(cricketActions.getContenstsList());
-            }else{
-               toast(response.data.msg);
-            }
-          
-        })
-        .catch(error => {});
 
-    }else{
+          if (!response.data.error) {
+            toast(response.data.msg);
+            this.setState({
+              addContenstModal: false
+            });
+            this.props.dispatch(cricketActions.getContenstsList());
+          } else {
+            toast(response.data.msg);
+          }
+
+        })
+        .catch(error => { });
+
+    } else {
       toast("Add all required fields");
     }
   }
@@ -198,10 +198,10 @@ class Contensts extends Component {
   deleteContenstConfirm(data) {
     //const { dispatch } = this.props;
     let formData = this.state.formData;
-     formData['dis_val']=data.dis_val;
-     formData['max_dis_val']=data.max_dis_val;
-     formData['cpypoolstatus']=data.cpypoolstatus;
-     formData['cpybfrtim']=data.cpybfrtim;
+    formData['dis_val'] = data.dis_val;
+    formData['max_dis_val'] = data.max_dis_val;
+    formData['cpypoolstatus'] = data.cpypoolstatus;
+    formData['cpybfrtim'] = data.cpybfrtim;
     this.setState({
       editcontenstid: data.id,
       editcontensttitle: data.title,
@@ -280,21 +280,21 @@ class Contensts extends Component {
     }
   }
   onDrop1(picture) {
-     this.setState({ contestlogo: picture[0] });
+    this.setState({ contestlogo: picture[0] });
   }
   onDropEdit(picture) {
-     this.setState({ editcontestlogo: picture[0] });
+    this.setState({ editcontestlogo: picture[0] });
   }
   editContenst() {
     this.setState({ submitted: true });
     this.editContestFun();
   }
 
-  editContestFun =()=> { 
-     if (this.state.editcontensttitle || this.state.editcontenstsubtitle || this.state.editcontestlogo) {
+  editContestFun = () => {
+    if (this.state.editcontensttitle || this.state.editcontenstsubtitle || this.state.editcontestlogo) {
       const formData = new FormData();
-      formData.append('id',  this.state.editcontenstid);
-      formData.append('title',  this.state.editcontensttitle);
+      formData.append('id', this.state.editcontenstid);
+      formData.append('title', this.state.editcontensttitle);
       formData.append('subtitle', this.state.editcontenstsubtitle);
       formData.append('contestlogo', this.state.editcontestlogo);
       formData.append('dis_val', this.state.formData.dis_val);
@@ -311,87 +311,85 @@ class Contensts extends Component {
         .post(CONST.BACKEND_URL + `/api/editcontests`, formData, config)
         .then(response => {
           //alert("The file is successfully uploaded");         
-            if (!response.data.error) {
-               toast(response.data.msg);
-                this.setState({
-                  editContenstModal: false
-                });
-                this.props.dispatch(cricketActions.getContenstsList());
-            }else{
-               toast(response.data.msg);
-            }
-          
+          if (!response.data.error) {
+            toast(response.data.msg);
+            this.setState({
+              editContenstModal: false
+            });
+            this.props.dispatch(cricketActions.getContenstsList());
+          } else {
+            toast(response.data.msg);
+          }
+
         })
-        .catch(error => {});
+        .catch(error => { });
 
     }
 
   }
-  onChangeSelect(e){
+  onChangeSelect(e) {
     const { name, value } = e.target;
-    console.log("e.target--->>>>",e.target);
-    let formData=this.state.formData;
-    formData[name]=value;
-    let typeset=0;
-    let checkSelect=false;
-    if(value==="perval")
-    {
-      typeset=100;
-      checkSelect=true;
-    }else if(value==="perval")
-    {
-      checkSelect=true;
+    console.log("e.target--->>>>", e.target);
+    let formData = this.state.formData;
+    formData[name] = value;
+    let typeset = 0;
+    let checkSelect = false;
+    if (value === "perval") {
+      typeset = 100;
+      checkSelect = true;
+    } else if (value === "perval") {
+      checkSelect = true;
     }
-    else if(value==="amtval")
-    {
-      checkSelect=true;
+    else if (value === "amtval") {
+      checkSelect = true;
     }
 
-    this.setState({ formData: formData,
-      typeset:typeset,
-      checkSelect:checkSelect
+    this.setState({
+      formData: formData,
+      typeset: typeset,
+      checkSelect: checkSelect
     });
   }
 
-   updFrmFieldVal(e) {
+  updFrmFieldVal(e) {
     const { name, value } = e.target;
-     let formData=this.state.formData;
-    formData[name]=value;
+    let formData = this.state.formData;
+    formData[name] = value;
     this.setState({ formData: formData });
   }
 
-  updateFavStatus(contests) {   
-   /*
-      const formData = new FormData();
-      formData.append('id',  contests.id);
-      formData.append('favstatus',  contests.favstatus);
-      formData.append('atype',  "favStatusUpdate");
-      const config = {
-        headers: {
-          'content-type': 'multipart/form-data',
-          Authorization: authHeader().Authorization
-        }
-      };
-      axios
-        .post(CONST.BACKEND_URL + `/api/editcontests`, formData, config)
-        .then(response => {
-         
-            if (!response.data.error) {
-               toast(response.data.msg);
-                this.props.dispatch(cricketActions.getContenstsList());
-            }else{
-               toast(response.data.msg);
-            }
+  updateFavStatus(contests) {
+    /*
+       const formData = new FormData();
+       formData.append('id',  contests.id);
+       formData.append('favstatus',  contests.favstatus);
+       formData.append('atype',  "favStatusUpdate");
+       const config = {
+         headers: {
+           'content-type': 'multipart/form-data',
+           Authorization: authHeader().Authorization
+         }
+       };
+       axios
+         .post(CONST.BACKEND_URL + `/api/editcontests`, formData, config)
+         .then(response => {
           
-        })
-        .catch(error => {}); */
+             if (!response.data.error) {
+                toast(response.data.msg);
+                 this.props.dispatch(cricketActions.getContenstsList());
+             }else{
+                toast(response.data.msg);
+             }
+           
+         })
+         .catch(error => {}); */
   }
 
 
   render() {
     const { cricket } = this.props;
     let { contenstsList } = cricket;
-    this.roleData = [{ value: 1, name: "Active" },{ value: 0, name: "Deactive" }];
+    this.roleData = [{ value: 1, name: "Active" }, { value: 0, name: "Deactive" }];
     return (
       <div className="animated fadeIn">
         <Row>
@@ -441,30 +439,30 @@ class Contensts extends Component {
                       <th scope="col">TITLE</th>
                       <th scope="col">SUBTITLE</th>
                       <th scope="col">Bonus Deduction (%)</th>
-                     { /* <th scope="col"> Copy Pool (Minute) </th>
+                      { /* <th scope="col"> Copy Pool (Minute) </th>
                        <th scope="col">Max Discount </th>
                      <th scope="col">Favorite</th> */ }
                       <th scope="col">STATUS</th>
                       <th scope="col">Update INFO</th>
-                      
+
                     </tr>
                   </thead>
                   <tbody>
                     {contenstsList
                       ? contenstsList.map((contenst, index) => (
-                          <tr key={contenst.id}>
+                        <tr key={contenst.id}>
                           <td><img
-                                src={contenst.contestlogo}
-                                width="50"
-                                height="50"
-                                className="img-avatar"
-                                onError={(e)=>{e.target.src=CONST.BACKEND_URL + '/uploads/icons/dummy.png'}}
-                                alt=""
-                              /></td>
-                            <td>{contenst.id}</td>
-                            <td>{contenst.title}</td>
-                            <td>{contenst.subtitle}</td>
-                            <td>{contenst.dis_val}</td>
+                            src={contenst.contestlogo}
+                            width="50"
+                            height="50"
+                            className="img-avatar"
+                            onError={(e) => { e.target.src = CONST.BACKEND_URL + '/uploads/icons/dummy.png' }}
+                            alt=""
+                          /></td>
+                          <td>{contenst.id}</td>
+                          <td>{contenst.title}</td>
+                          <td>{contenst.subtitle}</td>
+                          <td>{contenst.dis_val}</td>
                           { /*  <td>
                             {(contenst.cpypoolstatus=="1")?contenst.cpybfrtim:""} 
                             <Switch
@@ -477,46 +475,46 @@ class Contensts extends Component {
 
                             </td> 
                            <td><span id={'heart_'+index} onClick={()=>this.updateFavStatus(contenst)}>{(contenst.favstatus>0)?<span className="heart-red"><i className="fa fa-heart fa-lg mt-4"></i></span>:<span className="heart-red"><i className="fa fa-heart-o fa-lg mt-4"></i></span> }</span></td> */}
-                            <td>
-                              <Badge color={this.getBadge(contenst.status)}>
-                                {contenst.status === true
-                                  ? 'Active'
-                                  : 'Inactive'}
-                              </Badge>
-                            </td>
-                            <td>
-                              <Badge
-                                className="mr-1"
-                                onClick={() => this.showContenstInfo(contenst)}
-                                color="info"
-                                style={{ cursor: 'pointer' }}
-                              >
-                                Show
+                          <td>
+                            <Badge color={this.getBadge(contenst.status)}>
+                              {contenst.status === true
+                                ? 'Active'
+                                : 'Inactive'}
+                            </Badge>
+                          </td>
+                          <td>
+                            <Badge
+                              className="mr-1"
+                              onClick={() => this.showContenstInfo(contenst)}
+                              color="info"
+                              style={{ cursor: 'pointer' }}
+                            >
+                              Show
                               </Badge>{' '}
                               &nbsp;&nbsp;&nbsp;
                               <Badge
-                                className="mr-1"
-                                onClick={() =>
-                                  this.deleteContenstConfirm(contenst)
-                                }
-                                color="warning"
-                                style={{ cursor: 'pointer' }}
-                              >
-                                Edit
+                              className="mr-1"
+                              onClick={() =>
+                                this.deleteContenstConfirm(contenst)
+                              }
+                              color="warning"
+                              style={{ cursor: 'pointer' }}
+                            >
+                              Edit
                               </Badge>
 
                               &nbsp;&nbsp;&nbsp;
                               <Badge
-                                className="mr-1"
-                                href={`#/cricket/contests/${contenst.id}`}
-                                color="info"
-                                style={{ cursor: 'pointer' }}
-                              >
-                                Pool
+                              className="mr-1"
+                              href={`#/cricket/contests/${contenst.id}`}
+                              color="info"
+                              style={{ cursor: 'pointer' }}
+                            >
+                              Pool
                               </Badge>
-                            </td>
-                          </tr>
-                        ))
+                          </td>
+                        </tr>
+                      ))
                       : null}
                   </tbody>
                 </Table>
@@ -540,46 +538,46 @@ class Contensts extends Component {
             Add Contest
           </ModalHeader>
           <AvForm onValidSubmit={this.addContenst} >
-          <ModalBody>
-            <Row>
-              <Col xs="12">
-                <FormGroup>
-                  <Label htmlFor="pid">Title <span className="required">*</span></Label>
-                  <AvField
-                    type="text"
-                    name="contensttitle"
-                    id="contensttitle"
-                    autoComplete="off"
-                    onChange={this.handleChangeAddContenst}
-                    validate={{
-                          required: { value: true, errorMessage: "Title is required" },
-                          
-                      }}
-                  />
-                </FormGroup>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs="12">
-                <FormGroup>
-                  <Label htmlFor="fpname">SubTitle <span className="required">*</span></Label>
-                  <AvField
-                    type="text"
-                    name="contenstsubtitle"
-                    id="contenstsubtitle"
-                    autoComplete="off"
-                    onChange={this.handleChangeAddContenst}
-                    validate={{
-                          required: { value: true, errorMessage: "Sub title is required" },
-                          
-                      }}
-                  />
-                </FormGroup>
-              </Col>
-            </Row>
-            <Row>
+            <ModalBody>
+              <Row>
+                <Col xs="12">
+                  <FormGroup>
+                    <Label htmlFor="pid">Title <span className="required">*</span></Label>
+                    <AvField
+                      type="text"
+                      name="contensttitle"
+                      id="contensttitle"
+                      autoComplete="off"
+                      onChange={this.handleChangeAddContenst}
+                      validate={{
+                        required: { value: true, errorMessage: "Title is required" },
 
-             { /*
+                      }}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+              <Row>
+                <Col xs="12">
+                  <FormGroup>
+                    <Label htmlFor="fpname">SubTitle <span className="required">*</span></Label>
+                    <AvField
+                      type="text"
+                      name="contenstsubtitle"
+                      id="contenstsubtitle"
+                      autoComplete="off"
+                      onChange={this.handleChangeAddContenst}
+                      validate={{
+                        required: { value: true, errorMessage: "Sub title is required" },
+
+                      }}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+              <Row>
+
+                { /*
             <Col xs="6">  
                  <FormGroup>
                   <Label htmlFor="pid">Discount Type</Label>
@@ -599,23 +597,23 @@ class Contensts extends Component {
               </Col>
            */ }
 
-           <Col xs="6">
-                <FormGroup>
-                  <Label htmlFor="pid">Discount Value (%)</Label>
-                  <AvField
-                    type="number"
-                    name="dis_val"
-                    id="dis_val" 
-                    autoComplete="off" 
-                    onChange={this.updFrmFieldVal}
-                    value={this.state.formData.dis_val} 
-                    min="0"
-                    max= "100"
-                   
-                  />
-                </FormGroup>
-              </Col>
-            { /*
+                <Col xs="6">
+                  <FormGroup>
+                    <Label htmlFor="pid">Discount Value (%)</Label>
+                    <AvField
+                      type="number"
+                      name="dis_val"
+                      id="dis_val"
+                      autoComplete="off"
+                      onChange={this.updFrmFieldVal}
+                      value={this.state.formData.dis_val}
+                      min="0"
+                      max="100"
+
+                    />
+                  </FormGroup>
+                </Col>
+                { /*
               <Col xs="3">
                 <FormGroup>
                   <Label htmlFor="pid">Cpoy Pool</Label>
@@ -663,34 +661,34 @@ class Contensts extends Component {
                 </FormGroup>
               </Col> */}
 
-            </Row>
+              </Row>
 
-            <Row>
-              <Col xs="12">
-              
-                <FormGroup>
-                  <Label htmlFor="pname">Logo <span className="required">*</span></Label>
-                  <ImageUploader
-                    withIcon={false}
-                    buttonText="Contest Logo"
-                    withLabel={false}
-                    withPreview={true}
-                    onChange={this.onDrop1}
-                    maxFileSize={5242880}
-                  />
-                </FormGroup>
-              </Col>
-              
-            </Row>
-          </ModalBody>
-          <ModalFooter>
-            <Button color="primary" onClick={() => this.addContenst()}>
-              Submit
+              <Row>
+                <Col xs="12">
+
+                  <FormGroup>
+                    <Label htmlFor="pname">Logo <span className="required">*</span></Label>
+                    <ImageUploader
+                      withIcon={false}
+                      buttonText="Contest Logo"
+                      withLabel={false}
+                      withPreview={true}
+                      onChange={this.onDrop1}
+                      maxFileSize={5242880}
+                    />
+                  </FormGroup>
+                </Col>
+
+              </Row>
+            </ModalBody>
+            <ModalFooter>
+              <Button color="primary" onClick={() => this.addContenst()}>
+                Submit
             </Button>{' '}
-            <Button color="secondary" onClick={this.addContenstToggle}>
-              Cancel
+              <Button color="secondary" onClick={this.addContenstToggle}>
+                Cancel
             </Button>
-          </ModalFooter>
+            </ModalFooter>
           </AvForm>
         </Modal>
         <Modal
@@ -769,41 +767,41 @@ class Contensts extends Component {
           <ModalHeader toggle={this.editContenstToggle}>
             Edit Contest{' '}
           </ModalHeader>
-           <AvForm onValidSubmit={this.editContenst}>
-          <ModalBody>
-           <Row>
-              <Col xs="12">
-                <FormGroup>
-                  <Label htmlFor="pid">Title</Label>
-                  <Input
-                    type="text"
-                    name="editcontensttitle"
-                    id="editcontensttitle"
-                    autoComplete="off"
-                    value={this.state.editcontensttitle}
-                    onChange={this.handleChangeAddContenst}
-                  />
-                </FormGroup>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs="12">
-                <FormGroup>
-                  <Label htmlFor="fpname">SubTitle</Label>
-                  <Input
-                    type="text"
-                    name="editcontenstsubtitle"
-                    id="editcontenstsubtitle"
-                    autoComplete="off"
-                    value={this.state.editcontenstsubtitle}
-                    onChange={this.handleChangeAddContenst}
-                  />
-                </FormGroup>
-              </Col>
-            </Row>
-             <Row>
+          <AvForm onValidSubmit={this.editContenst}>
+            <ModalBody>
+              <Row>
+                <Col xs="12">
+                  <FormGroup>
+                    <Label htmlFor="pid">Title</Label>
+                    <Input
+                      type="text"
+                      name="editcontensttitle"
+                      id="editcontensttitle"
+                      autoComplete="off"
+                      value={this.state.editcontensttitle}
+                      onChange={this.handleChangeAddContenst}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+              <Row>
+                <Col xs="12">
+                  <FormGroup>
+                    <Label htmlFor="fpname">SubTitle</Label>
+                    <Input
+                      type="text"
+                      name="editcontenstsubtitle"
+                      id="editcontenstsubtitle"
+                      autoComplete="off"
+                      value={this.state.editcontenstsubtitle}
+                      onChange={this.handleChangeAddContenst}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+              <Row>
 
-             { /*
+                { /*
             <Col xs="6">  
                  <FormGroup>
                   <Label htmlFor="pid">Discount Type</Label>
@@ -823,23 +821,23 @@ class Contensts extends Component {
               </Col>
            */ }
 
-           <Col xs="6">
-                <FormGroup>
-                  <Label htmlFor="pid">Discount Value (%)</Label>
-                  <AvField
-                    type="number"
-                    name="dis_val"
-                    id="dis_val" 
-                    autoComplete="off" 
-                    onChange={this.updFrmFieldVal}
-                    value={this.state.formData.dis_val} 
-                    min="0"
-                    max= "100"
-                   
-                  />
-                </FormGroup>
-              </Col>
- { /*
+                <Col xs="6">
+                  <FormGroup>
+                    <Label htmlFor="pid">Discount Value (%)</Label>
+                    <AvField
+                      type="number"
+                      name="dis_val"
+                      id="dis_val"
+                      autoComplete="off"
+                      onChange={this.updFrmFieldVal}
+                      value={this.state.formData.dis_val}
+                      min="0"
+                      max="100"
+
+                    />
+                  </FormGroup>
+                </Col>
+                { /*
               <Col xs="3">
                 <FormGroup>
                   <Label htmlFor="pid">Cpoy Pool</Label>
@@ -887,38 +885,38 @@ class Contensts extends Component {
                 </FormGroup>
               </Col> */}
 
-            </Row>
-            <Row>
-              <Col xs="12">
-                <FormGroup>
-                  <Label htmlFor="pname">Logo</Label>
-                  <ImageUploader
-                    withIcon={false}
-                    buttonText="Contest Logo"
-                    withLabel={false}
-                    withPreview={false}
-                    onChange={this.onDropEdit}
-                    maxFileSize={5242880}
-                  />
-                  <img
+              </Row>
+              <Row>
+                <Col xs="12">
+                  <FormGroup>
+                    <Label htmlFor="pname">Logo</Label>
+                    <ImageUploader
+                      withIcon={false}
+                      buttonText="Contest Logo"
+                      withLabel={false}
+                      withPreview={false}
+                      onChange={this.onDropEdit}
+                      maxFileSize={5242880}
+                    />
+                    <img
                       src={this.state.editcontenstcontestlogo}
                       width="50"
                       height="50"
                       className="img-avatar"
                       alt=""
                     />
-                </FormGroup>
-              </Col>
-            </Row>
-          </ModalBody>
-          <ModalFooter>
-            <Button color="secondary" onClick={this.editContenstToggle}>
-              Cancel
+                  </FormGroup>
+                </Col>
+              </Row>
+            </ModalBody>
+            <ModalFooter>
+              <Button color="secondary" onClick={this.editContenstToggle}>
+                Cancel
             </Button>
-            <Button color="info" >
-              Update
+              <Button color="info" >
+                Update
             </Button>
-          </ModalFooter>
+            </ModalFooter>
           </AvForm>
         </Modal>
         <Modal
@@ -931,7 +929,7 @@ class Contensts extends Component {
           </ModalHeader>
           <ModalBody>
             <ListGroup>
-              
+
             </ListGroup>
           </ModalBody>
           <ModalFooter>
@@ -945,14 +943,14 @@ class Contensts extends Component {
               Cancel
             </Button>
           </ModalFooter>
-         
+
         </Modal>
       </div>
     );
   }
 }
 function mapStateToProps(state) {
-  const { cricket, authentication ,subadmin} = state;
+  const { cricket, authentication, subadmin } = state;
   const { user } = authentication;
 
   return {

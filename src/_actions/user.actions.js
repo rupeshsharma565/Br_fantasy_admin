@@ -4,57 +4,57 @@ import { alertActions } from './';
 import { history } from '../_helpers';
 
 export const userActions = {
-    login,
-    logout,
-    getAll,
-    updateUserStatus,
-    getAllNotification,
-    getAllCONTACT,
-    getAllInfo,
-    udpateUserKYC,
-    udpateUserDetails,
-    changePassword
+  login,
+  logout,
+  getAll,
+  updateUserStatus,
+  getAllNotification,
+  getAllCONTACT,
+  getAllInfo,
+  udpateUserKYC,
+  udpateUserDetails,
+  changePassword
 };
 
 function login(username, password) {
-    return dispatch => {
-        dispatch(request({ username }));
+  return dispatch => {
+    dispatch(request({ username }));
 
-        userService.login(username, password)
-            .then(
-                user => {
-                    dispatch(success(user));
-                    history.push({ pathname: '#/' });
-                    window.location.reload();
-                },
-                error => {
-                    dispatch(failure(error));
-                    dispatch(alertActions.error(error));
-                }
-            );
-    };
+    userService.login(username, password)
+      .then(
+        user => {
+          dispatch(success(user));
+          history.push({ pathname: '#/' });
+          window.location.reload();
+        },
+        error => {
+          dispatch(failure(error));
+          dispatch(alertActions.error(error));
+        }
+      );
+  };
 
-    function request(user) { return { type: userConstants.LOGIN_REQUEST, user } }
-    function success(user) { return { type: userConstants.LOGIN_SUCCESS, user } }
-    function failure(error) { return { type: userConstants.LOGIN_FAILURE, error } }
+  function request(user) { return { type: userConstants.LOGIN_REQUEST, user } }
+  function success(user) { return { type: userConstants.LOGIN_SUCCESS, user } }
+  function failure(error) { return { type: userConstants.LOGIN_FAILURE, error } }
 }
 
 function logout() {
-    userService.logout();
-    return { type: userConstants.LOGOUT };
+  userService.logout();
+  return { type: userConstants.LOGOUT };
 }
 function getAll(data) {
-    return dispatch => {
-        dispatch(request());
-        userService.getAll(data)
-            .then(
-                users => dispatch(success(users)),
-                error => dispatch(failure(error))
-            );
-    };
-    function request() { return { type: userConstants.GETALL_REQUEST } }
-    function success(users) { return { type: userConstants.GETALL_SUCCESS, users } }
-    function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
+  return dispatch => {
+    dispatch(request());
+    userService.getAll(data)
+      .then(
+        users => dispatch(success(users)),
+        error => dispatch(failure(error))
+      );
+  };
+  function request() { return { type: userConstants.GETALL_REQUEST } }
+  function success(users) { return { type: userConstants.GETALL_SUCCESS, users } }
+  function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
 }
 
 function updateUserStatus(data) {
@@ -78,46 +78,46 @@ function updateUserStatus(data) {
 }
 
 function getAllNotification(data) {
-    return dispatch => {
-        dispatch(request());
-        userService.getAllNotification(data)
-            .then(
-                users => dispatch(success(users)),
-                error => dispatch(failure(error))
-            );
-    };
-    function request() { return { type: userConstants.GETALL_REQUEST_NOTIFICATION } }
-    function success(users) { return { type: userConstants.GETALL_SUCCESS_NOTIFICATION, users } }
-    function failure(error) { return { type: userConstants.GETALL_FAILURE_NOTIFICATION, error } }
+  return dispatch => {
+    dispatch(request());
+    userService.getAllNotification(data)
+      .then(
+        users => dispatch(success(users)),
+        error => dispatch(failure(error))
+      );
+  };
+  function request() { return { type: userConstants.GETALL_REQUEST_NOTIFICATION } }
+  function success(users) { return { type: userConstants.GETALL_SUCCESS_NOTIFICATION, users } }
+  function failure(error) { return { type: userConstants.GETALL_FAILURE_NOTIFICATION, error } }
 }
 
 
 function getAllCONTACT(data) {
-    return dispatch => {
-        dispatch(request());
-        userService.getAllCONTACT(data)
-            .then(
-                users => dispatch(success(users)),
-                error => dispatch(failure(error))
-            );
-    };
-    function request() { return { type: userConstants.GETALL_REQUEST_CONTACT } }
-    function success(users) { return { type: userConstants.GETALL_SUCCESS_CONTACT, users } }
-    function failure(error) { return { type: userConstants.GETALL_FAILURE_CONTACT, error } }
+  return dispatch => {
+    dispatch(request());
+    userService.getAllCONTACT(data)
+      .then(
+        users => dispatch(success(users)),
+        error => dispatch(failure(error))
+      );
+  };
+  function request() { return { type: userConstants.GETALL_REQUEST_CONTACT } }
+  function success(users) { return { type: userConstants.GETALL_SUCCESS_CONTACT, users } }
+  function failure(error) { return { type: userConstants.GETALL_FAILURE_CONTACT, error } }
 }
 
 function getAllInfo(data) {
-    return dispatch => {
-        dispatch(request());
-        userService.getAllInfo(data)
-            .then(
-                users => dispatch(success(users)),
-                error => dispatch(failure(error))
-            );
-    };
-    function request() { return { type: userConstants.REQUEST_INFO_USER_INFO } }
-    function success(users) { return { type: userConstants.SUCCESS_INFO_USER_INFO, users } }
-    function failure(error) { return { type: userConstants.FAILURE_INFO_USER_INFO, error } }
+  return dispatch => {
+    dispatch(request());
+    userService.getAllInfo(data)
+      .then(
+        users => dispatch(success(users)),
+        error => dispatch(failure(error))
+      );
+  };
+  function request() { return { type: userConstants.REQUEST_INFO_USER_INFO } }
+  function success(users) { return { type: userConstants.SUCCESS_INFO_USER_INFO, users } }
+  function failure(error) { return { type: userConstants.FAILURE_INFO_USER_INFO, error } }
 }
 
 function udpateUserKYC(data) {
@@ -134,7 +134,7 @@ function udpateUserKYC(data) {
       }
     );
   };
-  
+
   function request() { return { type: userConstants.REQUEST_INFO_USER_INFO } }
   function success(userstatus) {
     return { type: userConstants.UPDATE_KYC_SUCCESS, userstatus };
@@ -157,7 +157,7 @@ function udpateUserDetails(data) {
       }
     );
   };
-  
+
   function request() { return { type: userConstants.UPDATE_DETAILS_REQUEST } }
   function success(userstatus) {
     return { type: userConstants.UPDATE_DETAILS_SUCCESS, userstatus };
@@ -181,7 +181,7 @@ function changePassword(data) {
       }
     );
   };
-  
+
   function request() { return { type: userConstants.CHANGE_PASSWORD_REQUEST } }
   function success(userstatus) {
     return { type: userConstants.CHANGE_PASSWORD_SUCCESS, userstatus };

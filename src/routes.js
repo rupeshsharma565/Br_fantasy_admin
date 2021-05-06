@@ -17,7 +17,7 @@ const Switches = React.lazy(() => import('./views/Base/Switches/Switches'));
 const Tables = React.lazy(() => import('./views/Base/Tables/Tables'));
 const Tabs = React.lazy(() => import('./views/Base/Tabs/Tabs'));
 const Tooltips = React.lazy(() => import('./views/Base/Tooltips/Tooltips'));
-const GlobalSettings = React.lazy(() =>import('./views/Settings/GlobalSettings/GlobalSettings'));
+const GlobalSettings = React.lazy(() => import('./views/Settings/GlobalSettings/GlobalSettings'));
 const Charts = React.lazy(() => import('./views/Charts/Charts'));
 const Dashboard = React.lazy(() => import('./views/Dashboard/Dashboard'));
 const CoreUIIcons = React.lazy(() => import('./views/Icons/CoreUIIcons/CoreUIIcons'));
@@ -67,7 +67,7 @@ const AddTeams = React.lazy(() => import('./views/Cricket/AddTeams/AddTeams'));
 //const StaticPage = React.lazy(() => import('./views/StaticPage/StaticPage'));
 const UpcommingMatch = React.lazy(() => import('./views/Cricket/UpcommingMatch/UpcommingMatch'));
 const ActiveMatch = React.lazy(() => import('./views/Cricket/ActiveMatch/ActiveMatch'));
-const ActiveMatcheScore= React.lazy(() => import('./views/Cricket/ActiveMatchScore/ActiveMatchScore'));
+const ActiveMatcheScore = React.lazy(() => import('./views/Cricket/ActiveMatchScore/ActiveMatchScore'));
 
 const ActiveMatchKabaddi = React.lazy(() => import('./views/Kabaddi/ActiveMatch/ActiveMatch'));
 
@@ -86,14 +86,14 @@ const TermCondition = React.lazy(() => import('./views/StaticPage/TermCondition/
 const HowPlay = React.lazy(() => import('./views/StaticPage/HowPlay/HowPlay'));
 const PrivacyPolicy = React.lazy(() => import('./views/StaticPage/PrivacyPolicy/PrivacyPolicy'));
 
-const LocalScore= React.lazy(() => import('./views/LocalScore/LocalScore'));
+const LocalScore = React.lazy(() => import('./views/LocalScore/LocalScore'));
 
-const MatcheScore= React.lazy(() => import('./views/MatcheScore/MatcheScore'));
-const NotificationToUser= React.lazy(() => import('./views/NotificationToUser/NotificationToUser'));
-const AllMatch= React.lazy(() => import('./views/Cricket/AllMatch/AllMatch'));
-const Rewards= React.lazy(() => import('./views/Rewards/Rewards'));
-const Promocode= React.lazy(() => import('./views/Promocode/Promocode'));
-const PrivateContest= React.lazy(() => import('./views/PrivateContest/PrivateContest'));
+const MatcheScore = React.lazy(() => import('./views/MatcheScore/MatcheScore'));
+const NotificationToUser = React.lazy(() => import('./views/NotificationToUser/NotificationToUser'));
+const AllMatch = React.lazy(() => import('./views/Cricket/AllMatch/AllMatch'));
+const Rewards = React.lazy(() => import('./views/Rewards/Rewards'));
+const Promocode = React.lazy(() => import('./views/Promocode/Promocode'));
+const PrivateContest = React.lazy(() => import('./views/PrivateContest/PrivateContest'));
 const DevelopSetting = React.lazy(() => import('./views/Settings/DevelopSetting/DevelopSetting'));
 
 //const User = React.lazy(() => import('./views/Users/User'));src/Payment/Bank/Bank.js
@@ -127,8 +127,8 @@ const routes = [
   { path: '/icons/coreui-icons', name: 'CoreUI Icons', component: CoreUIIcons },
   { path: '/icons/flags', name: 'Flags', component: Flags },
   { path: '/icons/font-awesome', name: 'Font Awesome', component: FontAwesome },
-  { path: '/icons/simple-line-icons', name: 'Simple Line Icons',component: SimpleLineIcons},
-  { path: '/notifications', exact: true, name: 'Notifications', component: Alerts},
+  { path: '/icons/simple-line-icons', name: 'Simple Line Icons', component: SimpleLineIcons },
+  { path: '/notifications', exact: true, name: 'Notifications', component: Alerts },
   { path: '/notifications/alerts', name: 'Alerts', component: Alerts },
   { path: '/notifications/badges', name: 'Badges', component: Badges },
   { path: '/notifications/modals', name: 'Modals', component: Modals },
@@ -152,7 +152,7 @@ const routes = [
   { path: '/kyc/notapproved', exact: true, name: 'NotApproved', component: NotApproved },
   { path: '/kyc/approved/:id', exact: true, name: 'User Details', component: ViewUser },
   { path: '/kyc/notapproved/:id', exact: true, name: 'User Details', component: ViewUser },
-  
+
   { path: '/subadmin', exact: true, name: 'SubAdmin', component: SubAdmin },
   { path: '/changepassword', exact: true, name: 'SubAdmin', component: ChangePassword },
   { path: '/withdraw', exact: true, name: 'WithdrawRequest', component: WithdrawRequest },
@@ -162,7 +162,7 @@ const routes = [
   { path: '/cricket/contests', exact: true, name: 'Contests', component: Contests },
   { path: '/cricket/addContests', exact: true, name: 'AddContests', component: AddContests },
   { path: '/cricket/contests/:id', exact: true, name: 'Pool Details', component: Pool },
-  { path: '/cricket/match',  exact: true, name: 'Match', component: CricketMatch },
+  { path: '/cricket/match', exact: true, name: 'Match', component: CricketMatch },
   { path: '/cricket/match/addmatch', exact: true, name: 'Add Match', component: AddMatch },
   { path: '/cricket/upcommingmatch', exact: true, name: 'Upcoming Match', component: UpcommingMatch },
   { path: '/cricket/activematch', exact: true, name: 'ActiveMatch', component: ActiveMatch },
@@ -177,7 +177,7 @@ const routes = [
   { path: '/kabaddi/contests', exact: true, name: 'Contests', component: Contests },
   { path: '/kabaddi/addContests', exact: true, name: 'AddContests', component: AddContests },
   { path: '/kabaddi/contests/:id', exact: true, name: 'Pool Details', component: Pool },
-  { path: '/kabaddi/match',  exact: true, name: 'Match', component: CricketMatch },
+  { path: '/kabaddi/match', exact: true, name: 'Match', component: CricketMatch },
   { path: '/kabaddi/match/addmatch', exact: true, name: 'Add Match', component: AddMatch },
   { path: '/kabaddi/upcommingmatch', exact: true, name: 'Upcoming Match', component: UpcommingMatch },
   { path: '/kabaddi/activematch', exact: true, name: 'ActiveMatch', component: ActiveMatchKabaddi },
@@ -191,7 +191,7 @@ const routes = [
   { path: '/football/contests', exact: true, name: 'Contests', component: Contests },
   { path: '/football/addContests', exact: true, name: 'AddContests', component: AddContests },
   { path: '/football/contests/:id', exact: true, name: 'Pool Details', component: Pool },
-  { path: '/football/match',  exact: true, name: 'Match', component: CricketMatch },
+  { path: '/football/match', exact: true, name: 'Match', component: CricketMatch },
   { path: '/football/match/addmatch', exact: true, name: 'Add Match', component: AddMatch },
   { path: '/football/upcommingmatch', exact: true, name: 'Upcoming Match', component: UpcommingMatch },
   { path: '/football/activematch', exact: true, name: 'ActiveMatch', component: ActiveMatchFootball },
@@ -203,7 +203,7 @@ const routes = [
   ///////////
 
   //{ path: '/staticpage', exact: true, name: 'StaticPage', component: StaticPage },
-  
+
   //{ path: '/settings', exact: true, name: 'Global Setting', component: GlobalSettings },
   { path: '/settings/globalsetting', exact: true, name: 'Main Setting', component: GlobalSettings },
   { path: '/settings/scricketsetting', exact: true, name: 'Cricket Setting', component: CricketSetting },
@@ -234,7 +234,7 @@ const routes = [
   { path: '/rewards', exact: true, name: 'Rewards', component: Rewards },
   { path: '/promocode', exact: true, name: 'Promocode', component: Promocode },
   { path: '/privatecontest', exact: true, name: 'PrivateContest', component: PrivateContest },
-  
+
   { path: '/settings/developsettings', exact: true, name: 'Common Setting', component: DevelopSetting },
 ];
 

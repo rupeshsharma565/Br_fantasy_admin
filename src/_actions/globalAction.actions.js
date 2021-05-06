@@ -20,17 +20,17 @@ function getGlobalList(data) {
     );
   };
   function request() {
-    return {constantreq:data.constantreq,mainstatename:data.mainstatename,typename:data.secondname, type: globalConstants[data.constantreq].GETALL_REQUEST };
+    return { constantreq: data.constantreq, mainstatename: data.mainstatename, typename: data.secondname, type: globalConstants[data.constantreq].GETALL_REQUEST };
   }
-  function success(mainstatename) {    
-    let mainobj={
-      [data.mainstatename]:mainstatename
+  function success(mainstatename) {
+    let mainobj = {
+      [data.mainstatename]: mainstatename
     };
 
-    return {constantreq:data.constantreq,mainstatename:data.mainstatename,typename:data.secondname, type: globalConstants[data.constantreq].GETALL_SUCCESS,mainobj };
+    return { constantreq: data.constantreq, mainstatename: data.mainstatename, typename: data.secondname, type: globalConstants[data.constantreq].GETALL_SUCCESS, mainobj };
   }
   function failure(error) {
-    return {constantreq:data.constantreq,mainstatename:data.mainstatename,typename:data.secondname, type: globalConstants[data.constantreq].GETALL_FAILURE, error };
+    return { constantreq: data.constantreq, mainstatename: data.mainstatename, typename: data.secondname, type: globalConstants[data.constantreq].GETALL_FAILURE, error };
   }
 }
 
